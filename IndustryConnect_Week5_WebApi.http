@@ -1,0 +1,6 @@
+@IndustryConnect_Week5_WebApi_HostAddress = http://localhost:5094
+
+GET {{IndustryConnect_Week5_WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
