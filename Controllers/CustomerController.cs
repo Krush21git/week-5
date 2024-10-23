@@ -26,7 +26,11 @@ namespace IndustryConnect_Week5_WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CustomerDto>>> GetCustomers()
         {
-            var _customers = await _context.Customers.Select(s => CustomerMapper.EntityToDto(s)).ToListAsync();
+            var _customers = await _context.Customers
+
+                                           .Select(c => CustomerMapper.EntityToDto(c))
+
+                                           .ToListAsync();
 
             if (_customers.Count > 0)
             {
@@ -94,7 +98,7 @@ namespace IndustryConnect_Week5_WebApi.Controllers
             _context.Customers.Add(entity);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = customer.Id }, CustomerMapper.EntityToDto(entity));
+            return CreatedAtAction("GetCustomer", new { id = entity.Id }, CustomerMapper.EntityToDto(entity));
         }
 
         // DELETE: api/Customer/5

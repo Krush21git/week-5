@@ -3,7 +3,7 @@ using IndustryConnect_Week5_WebApi.Models;
 
 namespace IndustryConnect_Week5_WebApi.Mappers
 {
-    public class CustomerMapper
+    public static class CustomerMapper
     {
         public static CustomerDto EntityToDto(Customer customer)
         {
