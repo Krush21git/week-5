@@ -46,7 +46,7 @@ namespace IndustryConnect_Week5_WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStore(int id, Store store)
         {
-            if (id != store.Id)
+            if (id != store.StoreId)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace IndustryConnect_Week5_WebApi.Controllers
             _context.Stores.Add(store);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStore", new { id = store.Id }, store);
+            return CreatedAtAction("GetStore", new { id = store.StoreId }, store);
         }
 
         // DELETE: api/Store/5
@@ -101,7 +101,7 @@ namespace IndustryConnect_Week5_WebApi.Controllers
 
         private bool StoreExists(int id)
         {
-            return _context.Stores.Any(e => e.Id == id);
+            return _context.Stores.Any(e => e.StoreId == id);
         }
     }
 }
